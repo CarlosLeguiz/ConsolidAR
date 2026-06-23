@@ -6,15 +6,16 @@
 
 ## Context
 
-ConsolidAR is the second portfolio project in a planned series of three. The
-first project, [FinClose AI](https://github.com/CarlosLeguiz/finclose-ai),
-deliberately chose a portable, warehouse-agnostic stack (DuckDB + dbt) so
-that the consolidation logic could be reproduced cheaply on a laptop.
+ConsolidAR is the second engineering effort in a planned series of three
+focused on FP&A data infrastructure. The first, [FinClose AI](https://github.com/CarlosLeguiz/finclose-ai),
+implements single-entity accounting close on a portable warehouse-agnostic
+stack (DuckDB + dbt). The portability of that stack was an explicit design
+goal — the entire pipeline runs on a laptop.
 
-This project has a different goal. It is meant to demonstrate **depth in a
-specific cloud data platform** to support job applications for Senior Data /
-Analytics Engineer roles where Snowflake is named as a required skill in the
-job description.
+This project takes the opposite stance. The goal is to demonstrate
+production-grade depth in Snowflake-specific platform capabilities applied
+to a multi-entity FP&A consolidation problem that is not solvable with the
+same level of elegance on a portable stack.
 
 There are three plausible architectural stances available:
 
@@ -72,7 +73,7 @@ Tables; they will not be portable.
 ### Option 1 — Warehouse-agnostic on dbt
 
 Rejected. This pattern is already demonstrated in FinClose AI. Repeating it
-on Snowflake would add no new capability to the portfolio, and would
+on Snowflake would add no new technical capability, and would
 explicitly avoid using the features that make Snowflake worth choosing as a
 warehouse in the first place. A reader of the repository would correctly
 conclude that the author has not actually used Snowflake in depth.
@@ -81,8 +82,7 @@ conclude that the author has not actually used Snowflake in depth.
 
 Rejected for this project, with a note. Iceberg is an interesting and
 relevant architectural choice in production settings where lock-in cost is
-real and the workload spans engines. For a portfolio project with a 30-day
-trial budget, adding Iceberg increases setup complexity and dilutes the
+real and the workload spans engines. For a project with a 30-day trial budget, adding Iceberg increases setup complexity and dilutes the
 narrative ("is this a Snowflake project or an Iceberg project?"). It is a
 better fit for the third planned project, where the lakehouse paradigm is
 the central theme.
@@ -107,7 +107,7 @@ problems in multi-entity consolidation:
 
 - The project demonstrates working knowledge of features that are commonly
   named in Snowflake-specific job descriptions but rarely shown end-to-end
-  in public portfolios (Dynamic Tables, Cortex, Snowpark, row access
+  in public Snowflake implementations (Dynamic Tables, Cortex, Snowpark, row access
   policies).
 - Architecture decisions can lean on Snowflake semantics directly without
   generalization, which produces a simpler design and more honest code.
@@ -134,9 +134,10 @@ problems in multi-entity consolidation:
 ### Neutral
 
 - Future maintenance is bounded by the lifetime of the trial. Once the trial
-  ends, the project is effectively archival. This is acceptable for a
-  portfolio piece; it would not be acceptable for a production system, and
-  this distinction should be called out explicitly in the README.
+  ends, the project is effectively archival. This is an acceptable trade-off
+  given the goal of demonstrating Snowflake-native depth; it would not be
+  acceptable for a production system, and this distinction is called out
+  explicitly in the README.
 
 ## References
 

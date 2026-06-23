@@ -19,7 +19,7 @@ is written that supersedes the old one, and the old one is marked
 | #    | Title                                                              | Status   |
 | ---- | ------------------------------------------------------------------ | -------- |
 | 0001 | [Snowflake-only architecture](0001-snowflake-only-architecture.md) | Accepted |
-| 0002 | CTA calculation: current-rate vs temporal method                   | Pending  |
+| 0002 | [CTA calculation: current-rate vs temporal method](0002-cta-current-rate-method.md) | Accepted |
 | 0003 | Intercompany matching: SQL vs Snowpark Python                      | Pending  |
 | 0004 | Dynamic Tables vs dbt incremental models                           | Pending  |
 | 0005 | Cortex in-database vs external LLM API                             | Pending  |

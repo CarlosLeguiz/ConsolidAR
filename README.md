@@ -4,7 +4,6 @@
 > intercompany eliminations, row-level security, and in-database LLM commentary
 > for FP&A.
 
-[![Status](https://img.shields.io/badge/status-WIP%20Phase%200-yellow)]()
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Snowflake](https://img.shields.io/badge/Snowflake-Native-29B5E8)](https://www.snowflake.com/)
 [![dbt](https://img.shields.io/badge/dbt-1.8-FF694B)](https://www.getdbt.com/)
@@ -13,9 +12,9 @@
 
 ## What this is
 
-ConsolidAR is a portfolio project demonstrating senior-level data engineering
-applied to a real FP&A problem: **closing the books for a multi-entity group
-with multiple currencies, intercompany activity, and minority interests.**
+ConsolidAR demonstrates production-grade data engineering applied to a real
+FP&A problem: **closing the books for a multi-entity group with multiple
+currencies, intercompany activity, and minority interests.**
 
 The dataset is synthetic. The accounting is not — every consolidation rule
 implemented here (FX translation methods, CTA, intercompany eliminations,
@@ -43,7 +42,7 @@ Intercompany flows include management fees from the holding to subsidiaries,
 inventory transfers between retail entities, and inter-segment sales between
 Manufacturing Peru and Distribution USA.
 
-## Architecture (target state)
+## Architecture 
 
 ```
 RAW (one schema per entity, row-access-policy-protected)
@@ -81,33 +80,15 @@ REPORTING
 zero-copy-cloned from production. Tests run against a full production replica
 with no storage cost.
 
-## What this project demonstrates
-
-| Capability                  | How it shows up here                                                       |
-| --------------------------- | -------------------------------------------------------------------------- |
-| Snowflake-native engineering| Dynamic Tables, Streams + Tasks, Snowpark UDFs, Cortex, RBAC, cloning      |
-| Multi-currency consolidation| Current-rate method, CTA in OCI, three FX rate types                       |
-| Intercompany eliminations   | Snowpark fuzzy-matching algorithm + dbt elimination journal                |
-| Row-level security          | Row access policies + role hierarchy per legal entity                      |
-| Performance engineering     | Clustering keys, search optimization, query profile evidence               |
-| In-database LLM             | Cortex Complete for consolidated variance commentary                       |
-| Cost governance             | Resource monitors, X-Small warehouse, credit consumption tracking          |
-
-## Status
-
-This project is being built in public. Current phase: **Phase 0 — Pre-trial
-preparation.** Snowflake trial has not been activated yet; all design and
-scaffolding work is being completed before the 30-day clock starts.
-
-See [docs/runbook.md](docs/runbook.md) (TBD) for reproduction instructions
-once the project is complete.
+For the full logical data model — tables, columns, grain, FX rate selection
+rules — see [docs/data_model.md](docs/data_model.md).
 
 ## ADRs
 
 Architecture decisions are documented in [`adrs/`](adrs/). Index:
 
 - [0001 — Snowflake-only architecture](adrs/0001-snowflake-only-architecture.md)
-- 0002 — CTA calculation: current-rate vs temporal method *(pending)*
+- [0002 — CTA calculation: current-rate vs temporal method](adrs/0002-cta-current-rate-method.md)
 - 0003 — Intercompany matching: SQL vs Snowpark Python *(pending)*
 - 0004 — Dynamic Tables vs dbt incremental models *(pending)*
 - 0005 — Cortex in-database vs external LLM API *(pending)*
@@ -125,8 +106,7 @@ Architecture decisions are documented in [`adrs/`](adrs/). Index:
 
 ## Author
 
-Carlos Leguizamon Guillaumet — accountant transitioning to Senior Data /
-Analytics Engineer (FP&A-oriented).
+Carlos Leguizamon Guillaumet — Senior Data / Analytics Engineer, FP&A-focused.
 
 ## License
 
