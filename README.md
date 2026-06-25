@@ -89,13 +89,7 @@ Architecture decisions are documented in [`adrs/`](adrs/). Index:
 
 - [0001 — Snowflake-only architecture](adrs/0001-snowflake-only-architecture.md)
 - [0002 — CTA calculation: current-rate vs temporal method](adrs/0002-cta-current-rate-method.md)
-- 0003 — Intercompany matching: SQL vs Snowpark Python *(pending)*
-- 0004 — Dynamic Tables vs dbt incremental models *(pending)*
-- 0005 — Cortex in-database vs external LLM API *(pending)*
-- 0006 — Row access policies vs separate databases per entity *(pending)*
-- 0007 — Tasks-based orchestration vs Airflow *(pending)*
-- 0008 — NCI calculation timing: pre or post eliminations *(pending)*
-- 0009 — Cost governance: warehouse sizing, auto-suspend, monitors *(pending)*
+- [0003 — Dependency management: pip + venv vs Poetry](adrs/0003-pip-venv-vs-poetry.md)
 
 ## Related work
 

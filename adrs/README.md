@@ -16,14 +16,8 @@ is written that supersedes the old one, and the old one is marked
 
 ## Index
 
-| #    | Title                                                              | Status   |
-| ---- | ------------------------------------------------------------------ | -------- |
-| 0001 | [Snowflake-only architecture](0001-snowflake-only-architecture.md) | Accepted |
-| 0002 | [CTA calculation: current-rate vs temporal method](0002-cta-current-rate-method.md) | Accepted |
-| 0003 | Intercompany matching: SQL vs Snowpark Python                      | Pending  |
-| 0004 | Dynamic Tables vs dbt incremental models                           | Pending  |
-| 0005 | Cortex in-database vs external LLM API                             | Pending  |
-| 0006 | Row access policies vs separate databases per entity               | Pending  |
-| 0007 | Tasks-based orchestration vs Airflow                               | Pending  |
-| 0008 | NCI calculation timing: pre or post eliminations                   | Pending  |
-| 0009 | Cost governance: warehouse sizing, auto-suspend, monitors          | Pending  |
+| #    | Title                                                                                 | Status   |
+| ---- | ------------------------------------------------------------------------------------- | -------- |
+| 0001 | [Snowflake-only architecture](0001-snowflake-only-architecture.md)                    | Accepted |
+| 0002 | [CTA calculation: current-rate vs temporal method](0002-cta-current-rate-method.md)   | Accepted |
+| 0003 | [Dependency management: pip + venv vs Poetry](0003-pip-venv-vs-poetry.md)             | Accepted |
