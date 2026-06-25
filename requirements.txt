@@ -1,0 +1,13 @@
+# ConsolidAR runtime dependencies
+# Use requirements-lock.txt for the exact frozen versions of all transitive packages.
+
+snowflake-connector-python>=3.12.0,<4.0.0
+snowflake-snowpark-python>=1.23.0,<2.0.0
+dbt-core>=1.8.0,<2.0.0
+dbt-snowflake>=1.8.0,<2.0.0
+pandas>=2.2.0,<3.0.0
+numpy>=1.26.0,<2.0.0
+faker>=28.0.0,<29.0.0
+requests>=2.32.0,<3.0.0
+python-dateutil>=2.9.0,<3.0.0
+pyarrow>=17.0.0,<18.0.0
