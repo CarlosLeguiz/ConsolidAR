@@ -5,17 +5,24 @@ balances into the presentation currency (USD) during consolidation.
 
 All four foreign currencies (ARS, BRL, CLP, PEN) are synthesized as
 deterministic daily trajectories seeded from RANDOM_SEED. This is a
-deliberate design choice, not a placeholder:
+deliberate design choice arrived at after evaluating live-API options:
 
-  - Free public FX APIs (frankfurter.app, backed by the European Central
-    Bank) do not carry Latin American currencies beyond BRL. CLP, PEN and
-    ARS are absent from the ECB reference feed.
-  - Paid APIs (exchangerate.host, OpenExchangeRates) require API keys and
-    per-user registration, which breaks the clone-and-run portability
-    that the project relies on for reproducibility.
+  - frankfurter.app (backed by the European Central Bank) is the natural
+    free option, no API key required. However, of the four currencies
+    this project needs, frankfurter only carries BRL. CLP, PEN and ARS
+    are all absent from the ECB reference feed. Using frankfurter for
+    BRL alone would produce a mixed pipeline (one real currency, three
+    synthetic) with no consistency benefit and extra fragility.
+  - Paid APIs (exchangerate.host, OpenExchangeRates) cover the missing
+    currencies but require per-user API keys, breaking the clone-and-run
+    portability that the project relies on for reproducibility.
   - Historical FX data occasionally revises retroactively; a synthetic
     trajectory is immune to this and guarantees byte-identical output on
     every run.
+
+Given the above, generating all four trajectories synthetically is the
+consistent choice: one code path, no external dependencies, no per-user
+setup, and full reproducibility.
 
 Trajectories are anchored to published 2024-2025 macroeconomic paths for
 each currency and interpolated daily with small seeded noise. They are
