@@ -101,6 +101,7 @@ Architecture decisions are documented in [`adrs/`](adrs/). Index:
 ## Author
 
 Carlos Leguizamon Guillaumet — Senior Data BI / Analytics Engineer.
+- [LinkedIn](https://www.linkedin.com/in/carlos-leguizamon-guillaumet/)
 
 ## License
 
