@@ -70,7 +70,7 @@ MARTS (consolidated outputs)
         v
 REPORTING
     Snowsight dashboards
-    SNOWFLAKE.CORTEX.COMPLETE() commentary on variances
+    SNOWFLAKE.CORTEX.COMPLETE() 
 ```
 
 **Orchestration:** Snowflake Tasks (not Airflow — see
