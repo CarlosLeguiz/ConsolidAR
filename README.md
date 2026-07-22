@@ -16,7 +16,7 @@ ConsolidAR demonstrates production-grade data engineering applied to a real
 FP&A problem: **closing the books for a multi-entity group with multiple
 currencies, intercompany activity, and minority interests.**
 
-The dataset is synthetic. The accounting is not — every consolidation rule
+The dataset is synthetic. The accounting is not every consolidation rule
 implemented here (FX translation methods, CTA, intercompany eliminations,
 non-controlling interest) follows the same logic that a Big 4 audit team would
 apply to a real corporate group.
